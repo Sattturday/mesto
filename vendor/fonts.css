@@ -14,14 +14,14 @@
 @font-face {
 	font-family: 'Inter';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-display: swap;
-  src: url('../vendor/fonts/inter_bold.eot'), /* IE 9 Compatibility Mode */
-    url('../vendor/fonts/inter_bold.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
-    url('../vendor/fonts/inter_bold.woff2') format('woff2'), /* Super Modern Browsers */
-    url('../vendor/fonts/inter_bold.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
-    url('../vendor/fonts/inter_bold.ttf') format('truetype'), /* Safari, Android, iOS */
-    url('../vendor/fonts/inter_bold.svg#inter_bold') format('svg'); /* Chrome < 4, Legacy iOS */
+  src: url('../vendor/fonts/inter_medium.eot'), /* IE 9 Compatibility Mode */
+    url('../vendor/fonts/inter_medium.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+    url('../vendor/fonts/inter_medium.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../vendor/fonts/inter_medium.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+    url('../vendor/fonts/inter_medium.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../vendor/fonts/inter_medium.svg#inter_bold') format('svg'); /* Chrome < 4, Legacy iOS */
 }
 
 @font-face {
