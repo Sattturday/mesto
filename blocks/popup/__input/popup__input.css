@@ -4,8 +4,8 @@
   height: 24px;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: transparent;
-  margin-top: 30px;
+  margin-top: 27px;
+  padding: 13px 2px;
   font-size: 14px;
   line-height: 1.2;
   font-weight: 400;
@@ -13,7 +13,7 @@
 }
 
 .popup__input:focus {
-  outline-color: rgba(0, 0, 0, 0.1);
+  outline-color: rgba(0, 0, 0, 0.2);
 }
 
 .popup__input::placeholder {
