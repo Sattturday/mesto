@@ -8,3 +8,11 @@
   border: none;
   padding: 0;
 }
+
+.cards__like:hover {
+  opacity: 0.5;
+}
+
+.cards__like:active {
+  background-image: url(../../../images/cards-like-aktiv.svg);
+}
