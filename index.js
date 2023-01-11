@@ -39,9 +39,19 @@ function handleFormSubmit (event) {
     profileJob.textContent = job;
 
     popup.classList.toggle('popup_opened'); // Закрываем попап, удаляя класс popup_opened
+
 }
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 popupForm.addEventListener('submit', handleFormSubmit);
+
+// Обработчик нажатия на клавишу “Enter” при открытом попапе
+popup.addEventListener('keydown', function(e) {
+  if (e.keyCode === 13) {
+    handleFormSubmit (e);
+  }
+});
+
+
 
