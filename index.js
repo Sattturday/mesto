@@ -5,7 +5,7 @@ let popupButtonClose = popup.querySelector('.popup__close'); // Нахоидим
 let popupForm = popup.querySelector('.popup__container'); // Находим форму в DOM
 
 function popupOpened(event) {
-  event.preventDefault(); // Отменяем поведение браузера по умолчанию
+  //  event.preventDefault(); // Отменяем поведение браузера по умолчанию
   popup.classList.toggle('popup_opened'); // Добавляем/удаляем класс popup_opened
   popupForm.reset(); // Сбрасываем форму
 }
@@ -19,26 +19,26 @@ let jobInput = popupForm.querySelector('.popup__input_job');
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-function handleFormSubmit (event) {
-    event.preventDefault(); // Отменяем поведение браузера по умолчанию
+function handleFormSubmit(event) {
+  event.preventDefault(); // Отменяем поведение браузера по умолчанию
 
-    // Получаем значение полей jobInput и nameInput из свойства value
-    let name = nameInput.value;
-    let job = jobInput.value;
+  // Получаем значение полей jobInput и nameInput из свойства value
+  let name = nameInput.value;
+  let job = jobInput.value;
 
-    // Выбераем элементы, куда должны быть вставлены значения полей
-    let profileName = content.querySelector('.profile__info-name');
-    let profileJob = content.querySelector('.profile__info-job');
+  // Выбераем элементы, куда должны быть вставлены значения полей
+  let profileName = content.querySelector('.profile__info-name');
+  let profileJob = content.querySelector('.profile__info-job');
 
-    // Меняем значение атрибутов placeholder
-    nameInput.setAttribute('placeholder', name);
-    jobInput.setAttribute('placeholder', job);
+  // Меняем значение атрибутов placeholder
+  nameInput.setAttribute('placeholder', name);
+  jobInput.setAttribute('placeholder', job);
 
-    // Вставляем новые значения с помощью textContent
-    profileName.textContent = name;
-    profileJob.textContent = job;
+  // Вставляем новые значения с помощью textContent
+  profileName.textContent = name;
+  profileJob.textContent = job;
 
-    popup.classList.toggle('popup_opened'); // Закрываем попап, удаляя класс popup_opened
+  popup.classList.toggle('popup_opened'); // Закрываем попап, удаляя класс popup_opened
 
 }
 
@@ -47,11 +47,11 @@ function handleFormSubmit (event) {
 popupForm.addEventListener('submit', handleFormSubmit);
 
 // Обработчик нажатия на клавишу “Enter” при открытом попапе
-popup.addEventListener('keydown', function(e) {
-  if (e.keyCode === 13) {
-    handleFormSubmit (e);
-  }
-});
+//popup.addEventListener('keydown', function(e) {
+//  if (e.keyCode === 13) {
+//    handleFormSubmit (e);
+//  }
+//});
 
 
 
