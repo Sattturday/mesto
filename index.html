@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css">
-  <title>Document</title>
+  <title>Место</title>
 </head>
 
 <body class="page">
@@ -16,74 +16,74 @@
     <section class="profile" aria-label="Профиль">
       <div class="profile__info">
         <img src="./images/profile-avatar.jpg" alt="Аватар" class="profile__avatar">
-        <p class="profile__info-name">Жак-Ив Кусто</p>
-        <button class="profile__edit-button"></button>
+        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+        <button type="button" class="profile__edit-button"></button>
         <p class="profile__info-job">Исследователь океана</p>
       </div>
-      <button class="profile__add-button"></button>
+      <button type="button" class="profile__add-button"></button>
     </section>
     <section class="elements" aria-label="Места">
       <ul class="cards">
         <li class="cards__item">
           <img class="cards__image" src="./images/cards-kamchatka.jpg" alt="Камчатка">
           <div class="cards__info">
-            <p class="cards__title">Камчатка</p>
-            <button class="cards__like"></button>
+            <h2 class="cards__title">Камчатка</h2>
+            <button type="button" class="cards__like"></button>
           </div>
         </li>
         <li class="cards__item">
           <img class="cards__image" src="./images/cards-beloretsk.jpg" alt="Белорецк">
           <div class="cards__info">
-            <p class="cards__title">Белорецк</p>
-            <button class="cards__like"></button>
+            <h2 class="cards__title">Белорецк</h2>
+            <button type="button" class="cards__like"></button>
           </div>
         </li>
         <li class="cards__item">
           <img class="cards__image" src="./images/cards-ural.jpg" alt="Урал">
           <div class="cards__info">
-            <p class="cards__title">Урал</p>
-            <button class="cards__like"></button>
+            <h2 class="cards__title">Урал</h2>
+            <button type="button" class="cards__like"></button>
           </div>
         </li>
         <li class="cards__item">
           <img class="cards__image" src="./images/cards-pokrov.jpg" alt="Покров">
           <div class="cards__info">
-            <p class="cards__title">Покров</p>
-            <button class="cards__like"></button>
+            <h2 class="cards__title">Покров</h2>
+            <button type="button" class="cards__like"></button>
           </div>
         </li>
         <li class="cards__item">
           <img class="cards__image" src="./images/cards-baikal-leto.jpg" alt="Летний Байкал">
           <div class="cards__info">
-            <p class="cards__title">Байкал</p>
-            <button class="cards__like"></button>
+            <h2 class="cards__title">Байкал</h2>
+            <button type="button" class="cards__like"></button>
           </div>
         </li>
         <li class="cards__item">
           <img class="cards__image" src="./images/cards-baikal-zima.jpg" alt="Зимний Байкал">
           <div class="cards__info">
-            <p class="cards__title">Байкал заледенел</p>
-            <button class="cards__like"></button>
+            <h2 class="cards__title">Байкал заледенел</h2>
+            <button type="button" class="cards__like"></button>
           </div>
         </li>
       </ul>
     </section>
-    <section class="popup" aria-label="Редактировать профиль">
+    <div class="popup" aria-label="Редактировать профиль">
       <form class="popup__container">
-        <button class="popup__close"></button>
+        <button type="button" class="popup__close"></button>
         <p class="popup__title">Редактировать профиль</p>
         <fieldset class="popup__items">
-          <input type="text" class="popup__input popup__input_name" placeholder="Жак-Ив Кусто" required>
-          <input type="text" class="popup__input popup__input_job" placeholder="Исследователь океана" required>
-          <input type="submit" class="popup__button-save" value="Сохранить">
+          <input type="text" class="popup__input popup__input_name" value="Жак-Ив Кусто">
+          <input type="text" class="popup__input popup__input_job" value="Исследователь океана">
+          <button type="submit" class="popup__button-save">Сохранить</button>
         </fieldset>
       </form>
-    </section>
+    </div>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
-  <script src="./index.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
