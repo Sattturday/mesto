@@ -43,13 +43,3 @@ function handleFormSubmit(evt) {
 // он будет следить за событием “submit” - «отправка»
 popupForm.addEventListener('submit', handleFormSubmit);
 
-/*
-// Обработчик нажатия на клавишу “Enter” при открытом попапе
-popup.addEventListener('keydown', function (e) {
-  if (e.keyCode === 13) {
-    handleFormSubmit(e);
-  }
-});
-*/
-
-

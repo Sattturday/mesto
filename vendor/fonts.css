@@ -13,8 +13,6 @@
     /* Firefox >= 3.6, any other modern browser */
     url('../vendor/fonts/inter_regular.ttf') format('truetype'),
     /* Safari, Android, iOS */
-    url('../vendor/fonts/inter_regular.svg#inter_regular') format('svg');
-  /* Chrome < 4, Legacy iOS */
 }
 
 @font-face {
@@ -32,8 +30,6 @@
     /* Firefox >= 3.6, any other modern browser */
     url('../vendor/fonts/inter_medium.ttf') format('truetype'),
     /* Safari, Android, iOS */
-    url('../vendor/fonts/inter_medium.svg#inter_bold') format('svg');
-  /* Chrome < 4, Legacy iOS */
 }
 
 @font-face {
@@ -51,6 +47,4 @@
     /* Firefox >= 3.6, any other modern browser */
     url('../vendor/fonts/inter_black.ttf') format('truetype'),
     /* Safari, Android, iOS */
-    url('../vendor/fonts/inter_black.svg#inter_black') format('svg');
-  /* Chrome < 4, Legacy iOS */
 }
