@@ -1,6 +1,6 @@
 let content = document.querySelector('.content');
 let popup = content.querySelector('.popup'); // Находим попап
-let profileEditButton = content.querySelector('.profile__edit-button'); // Находим кнопку редактирования профиля
+let profileEditButton = content.querySelector('.profile__button_edit'); // Находим кнопку редактирования профиля
 let popupButtonClose = popup.querySelector('.popup__close'); // Нахоидим кнопку закрытия формы
 let popupForm = popup.querySelector('.popup__container'); // Находим форму в DOM
 let nameInput = popupForm.querySelector('.popup__input_name'); // Находим поля формы в DOM
