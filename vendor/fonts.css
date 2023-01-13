@@ -11,8 +11,8 @@
     /* Super Modern Browsers */
     url('../vendor/fonts/inter_regular.woff') format('woff'),
     /* Firefox >= 3.6, any other modern browser */
-    url('../vendor/fonts/inter_regular.ttf') format('truetype'),
-    /* Safari, Android, iOS */
+    url('../vendor/fonts/inter_regular.ttf') format('truetype');
+  /* Safari, Android, iOS */
 }
 
 @font-face {
@@ -28,8 +28,8 @@
     /* Super Modern Browsers */
     url('../vendor/fonts/inter_medium.woff') format('woff'),
     /* Firefox >= 3.6, any other modern browser */
-    url('../vendor/fonts/inter_medium.ttf') format('truetype'),
-    /* Safari, Android, iOS */
+    url('../vendor/fonts/inter_medium.ttf') format('truetype');
+  /* Safari, Android, iOS */
 }
 
 @font-face {
@@ -45,6 +45,6 @@
     /* Super Modern Browsers */
     url('../vendor/fonts/inter_black.woff') format('woff'),
     /* Firefox >= 3.6, any other modern browser */
-    url('../vendor/fonts/inter_black.ttf') format('truetype'),
-    /* Safari, Android, iOS */
+    url('../vendor/fonts/inter_black.ttf') format('truetype');
+  /* Safari, Android, iOS */
 }
