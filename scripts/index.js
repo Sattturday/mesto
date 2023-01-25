@@ -11,8 +11,16 @@ function popupStateChange() {
   popupForm.reset(); // Сбрасываем форму
 }
 
+//закрытие попапа по клику на оверлей
+const handleOverlayClick = (event) => {
+  if (event.target === event.currentTarget) {
+    popupStateChange();
+  }
+}
+
 profileEditButton.addEventListener('click', popupStateChange); // Клик кнопки редактирования профиля
 popupButtonClose.addEventListener('click', popupStateChange); // Клик кнопки закрытия формы
+popup.addEventListener('click', handleOverlayClick); // Клик по оверлею
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
