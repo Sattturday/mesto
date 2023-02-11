@@ -180,24 +180,11 @@ const popupImageButtonClose = popupImage.querySelector('.popup__close'); // На
 cardsImages.forEach((element) => element.addEventListener('click', changePopupImageState));
 popupImageButtonClose.addEventListener('click', changePopupImageState);
 
-/*const popupAdd = content.querySelector('.popup_for_add-card'); // Находим попап добавления
-const popupAddForm = popupAdd.querySelector('.popup__container'); // Находим форму добавления
-
-const changePopupAddState = () => {
-  popupAdd.classList.toggle('popup_opened');
-  popupAddForm.reset()
-}
-
-const addButton = content.querySelector('.profile__button_add'); // Находим кнопку добавления карточки
-const popupAddButtonClose = popupAdd.querySelector('.popup__close'); // Нахоидим кнопку закрытия формы
-
-addButton.addEventListener('click', changePopupAddState);
-popupAddButtonClose.addEventListener('click', changePopupAddState);
-
-const handleOverlayAddClick = (event) => {
+const handleOverlayImageClick = (event) => {
   if (event.target === event.currentTarget) {
-    changePopupAddState();
+    changePopupImageState();
   }
 }
 
-popupAdd.addEventListener('click', handleOverlayAddClick); // Клик пооверлею*/
+popupImage.addEventListener('click', handleOverlayImageClick);
+
