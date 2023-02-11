@@ -42,6 +42,10 @@ initialCards.forEach((element) => {
     evt.target.classList.toggle('cards__like_active');
   });
 
+  cardElement.querySelector('.cards__delete').addEventListener('click', (evt) => {
+    evt.target.parentElement.remove();
+  });
+
   cardsList.append(cardElement);
 })
 
@@ -147,6 +151,10 @@ const handleFormAddSubmit = (evt) => {
 
   newCard.querySelector('.cards__like').addEventListener('click', (evt) => {
     evt.target.classList.toggle('cards__like_active');
+  });
+
+  newCard.querySelector('.cards__delete').addEventListener('click', (evt) => {
+    evt.target.parentElement.remove();
   });
 
   // Вставляем карточку
