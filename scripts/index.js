@@ -29,7 +29,7 @@ const content = document.querySelector('.content');
 const cardsList = content.querySelector('.cards');
 const cardTemplate = document.querySelector('.card-template').content; // Находим содержимое темплейта с карточкий
 
-initialCards.forEach(function (element) {
+initialCards.forEach((element) => {
   const cardElement = cardTemplate.querySelector('.cards__item').cloneNode(true); // Клонируем содержимое
 
   cardElement.querySelector('.cards__title').textContent = element.name; // Вписываем название карточки
@@ -38,31 +38,34 @@ initialCards.forEach(function (element) {
   cardImage.setAttribute('src', element.link); // Вставляем ссылку на изображение
   cardImage.setAttribute('alt', element.name); // Вставляем значение атрибута alt
 
-  cardElement.querySelector('.cards__like').addEventListener('click', function (evt) {
+  cardElement.querySelector('.cards__like').addEventListener('click', (evt) => {
     evt.target.classList.toggle('cards__like_active');
   });
 
   cardsList.append(cardElement);
 })
 
+
+
 const popup = content.querySelector('.popup'); // Находим попап
 const popupForm = popup.querySelector('.popup__container'); // Находим форму в DOM
 
-function popupStateChange() {
+const changePopupState = () => {
   popup.classList.toggle('popup_opened'); // Добавляем/удаляем класс popup_opened
-  popupForm.reset(); // Сбрасываем форму
+  popupForm.reset() // Сбрасываем форму
 }
 
 const profileEditButton = content.querySelector('.profile__button_edit'); // Находим кнопку редактирования профиля
+const addButton = content.querySelector('.profile__button_add'); // Находим кнопку добавления карточки
 const popupButtonClose = popup.querySelector('.popup__close'); // Нахоидим кнопку закрытия формы
 
-profileEditButton.addEventListener('click', popupStateChange); // Клик кнопки редактирования профиля
-popupButtonClose.addEventListener('click', popupStateChange); // Клик кнопки закрытия формы
+profileEditButton.addEventListener('click', changePopupState); // Клик кнопки редактирования профиля
+popupButtonClose.addEventListener('click', changePopupState); // Клик кнопки закрытия формы
 
 //закрытие попапа по клику на оверлей
 const handleOverlayClick = (event) => {
   if (event.target === event.currentTarget) {
-    popupStateChange();
+    changePopupState();
   }
 }
 
@@ -72,7 +75,7 @@ const nameInput = popupForm.querySelector('.popup__input_name'); // Находи
 const jobInput = popupForm.querySelector('.popup__input_job'); // Находим поля формы в DOM
 
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
-function handleFormSubmit(evt) {
+const handleFormEditProfileSubmit = (evt) => {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 
   // Получаем значение полей jobInput и nameInput из свойства value
@@ -92,10 +95,8 @@ function handleFormSubmit(evt) {
   jobInput.setAttribute('value', job);
 
   // Закрываем попап
-  popupStateChange();
+  changePopupState();
 }
 
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-popupForm.addEventListener('submit', handleFormSubmit);
+popupForm.addEventListener('submit', handleFormEditProfileSubmit); // Прикрепляем обработчик к форме
 
