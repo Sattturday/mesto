@@ -167,4 +167,37 @@ const handleFormAddSubmit = (evt) => {
 popupAddForm.addEventListener('submit', handleFormAddSubmit); // Прикрепляем обработчик к форме
 
 
-// Теперь удаление карточек
+// Теперь попап с картинкой
+const popupImage = content.querySelector('.popup_for_full-image');
+
+const changePopupImageState = () => {
+  popupImage.classList.toggle('popup_opened');
+}
+
+const cardsImages = content.querySelectorAll('.cards__image'); // Находим all images
+const popupImageButtonClose = popupImage.querySelector('.popup__close'); // Нахоидим кнопку закрытия popupImage
+
+cardsImages.forEach((element) => element.addEventListener('click', changePopupImageState));
+popupImageButtonClose.addEventListener('click', changePopupImageState);
+
+/*const popupAdd = content.querySelector('.popup_for_add-card'); // Находим попап добавления
+const popupAddForm = popupAdd.querySelector('.popup__container'); // Находим форму добавления
+
+const changePopupAddState = () => {
+  popupAdd.classList.toggle('popup_opened');
+  popupAddForm.reset()
+}
+
+const addButton = content.querySelector('.profile__button_add'); // Находим кнопку добавления карточки
+const popupAddButtonClose = popupAdd.querySelector('.popup__close'); // Нахоидим кнопку закрытия формы
+
+addButton.addEventListener('click', changePopupAddState);
+popupAddButtonClose.addEventListener('click', changePopupAddState);
+
+const handleOverlayAddClick = (event) => {
+  if (event.target === event.currentTarget) {
+    changePopupAddState();
+  }
+}
+
+popupAdd.addEventListener('click', handleOverlayAddClick); // Клик пооверлею*/
