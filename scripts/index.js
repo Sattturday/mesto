@@ -115,18 +115,18 @@ const changePopupImageState = () => {
   popupImage.classList.toggle('popup_opened');  // Открытие-закрытие попапа
 }
 
+const editPopupImage = (event) => {
+  const link = event.target.getAttribute('src');
+  const caption = event.target.getAttribute('alt');
 
-// открываем отредактированные попап
-//cardsImages.forEach((element) => element.addEventListener('click', () => {
-//  const cardImage = cardElement.querySelector('.cards__image'); // Находим имг
-//  cardImage.setAttribute('src', element.link); // Вставляем ссылку на изображение
-//  cardImage.setAttribute('alt', element.name); // Вставляем значение атрибута alt
+  fullImage.setAttribute('src', link); // Вставляем ссылку на изображение
+  fullImage.setAttribute('alt', caption); // Прописываем изображению alt
+  fullImageCaption.textContent = caption; // Вставляем значение атрибута alt
+}
 
-//  changePopupImageState;
-//}));
-
-cardsImages.forEach((element) => element.addEventListener('click', changePopupImageState)); // открытие по клику на изображение карточки
-popupImageButtonClose.addEventListener('click', changePopupImageState);
+cardsImages.forEach((element) => element.addEventListener('click', editPopupImage)); // подготовка соответсвующего попапа
+cardsImages.forEach((element) => element.addEventListener('click', changePopupImageState)); // открытие попапа по клику на изображение карточки
+popupImageButtonClose.addEventListener('click', changePopupImageState); // закрытие попапа
 
 
 // Теперь попап добавления карточки
@@ -150,7 +150,7 @@ const handleOverlayAddClick = (event) => {
   }
 }
 
-popupAdd.addEventListener('click', handleOverlayAddClick); // Клик пооверлею
+popupAdd.addEventListener('click', handleOverlayAddClick); // Клик по оверлею
 
 // Находим поля формы
 const cardName = popupAddForm.querySelector('.popup__input_card-name');
@@ -177,7 +177,8 @@ const handleFormAddSubmit = (evt) => {
     evt.target.classList.toggle('cards__like_active');
   });
 
-  cardImage.addEventListener('click', changePopupImageState);
+  cardImage.addEventListener('click', editPopupImage); // при клике на изображение делаем соответствующий попап
+  cardImage.addEventListener('click', changePopupImageState); // и открываем этот попап
 
   newCard.querySelector('.cards__delete').addEventListener('click', (evt) => {
     evt.target.parentElement.remove();
@@ -192,23 +193,3 @@ const handleFormAddSubmit = (evt) => {
 
 popupAddForm.addEventListener('submit', handleFormAddSubmit); // Прикрепляем обработчик к форме
 
-
-
-/*
-// Теперь попап с картинкой
-const popupImage = content.querySelector('.popup_for_full-image'); // находим попап
-const fullImage = popupImage.querySelector('.full-image'); // image in popup
-const fullImageCaption = popupImage.querySelector('.full-image__caption'); // caption in popup
-
-const changePopupImageState = () => {
-  popupImage.classList.toggle('popup_opened');  // Открытие-закрытие попапа
-
-}
-
-const cardsImages = content.querySelectorAll('.cards__image'); // Находим all images
-const popupImageButtonClose = popupImage.querySelector('.popup__close'); // Нахоидим кнопку закрытия popupImage
-
-cardsImages.forEach((element) => element.addEventListener('click', changePopupImageState)); // открытие по клику на изображение карточки
-popupImageButtonClose.addEventListener('click', changePopupImageState); // закрытие по клику на крестик
-
-*/
