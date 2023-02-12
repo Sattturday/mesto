@@ -168,18 +168,21 @@ popupAddForm.addEventListener('submit', handleFormAddSubmit); // Прикреп�
 
 
 // Теперь попап с картинкой
-const popupImage = content.querySelector('.popup_for_full-image');
+const popupImage = content.querySelector('.popup_for_full-image'); // находим попап
+const fullImage = popupImage.querySelector('.full-image');
 
 const changePopupImageState = () => {
-  popupImage.classList.toggle('popup_opened');
+  popupImage.classList.toggle('popup_opened');  // Открытие-закрытие попапа
+
 }
 
 const cardsImages = content.querySelectorAll('.cards__image'); // Находим all images
 const popupImageButtonClose = popupImage.querySelector('.popup__close'); // Нахоидим кнопку закрытия popupImage
 
-cardsImages.forEach((element) => element.addEventListener('click', changePopupImageState));
-popupImageButtonClose.addEventListener('click', changePopupImageState);
+cardsImages.forEach((element) => element.addEventListener('click', changePopupImageState)); // открытие по клику на изображение карточки
+popupImageButtonClose.addEventListener('click', changePopupImageState); // закрытие по клику на крестик
 
+// закрытие по клику на оверлей
 const handleOverlayImageClick = (event) => {
   if (event.target === event.currentTarget) {
     changePopupImageState();
