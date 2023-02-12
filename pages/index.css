@@ -32,15 +32,5 @@
 @import url(../blocks/popup/__items/popup__items.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__button-save/popup__button-save.css);
-@import url(../blocks/full-image/full-image.css);
-@import url(../blocks/full-image/__caption/full-image__caption.css);
-
-/* Заготовка на медиазапрос
-
-@media screen and (max-width: 768px) {
-  . {
-
-  }
-}
-
-*/
+@import url(../blocks/popup/__full-image/popup__full-image.css);
+@import url(../blocks/popup/__caption/popup__caption.css);

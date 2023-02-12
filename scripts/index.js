@@ -106,8 +106,8 @@ popupForm.addEventListener('submit', handleFormEditSubmit); // Прикрепл�
 
 // открытие попапа с полным изображением
 const popupImage = content.querySelector('.popup_for_full-image'); // находим попап
-const fullImage = popupImage.querySelector('.full-image'); // image in popup
-const fullImageCaption = popupImage.querySelector('.full-image__caption'); // caption in popup
+const fullImage = popupImage.querySelector('.popup__full-image'); // image in popup
+const fullImageCaption = popupImage.querySelector('.popup__caption'); // caption in popup
 const popupImageButtonClose = popupImage.querySelector('.popup__close'); // Нахоидим кнопку закрытия popupImage
 const cardsImages = content.querySelectorAll('.cards__image'); // Находим all images
 
