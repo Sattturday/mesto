@@ -24,12 +24,16 @@
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup/_for/popup_for_full-image.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__container/_image/popup__container_image.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__items/popup__items.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__button-save/popup__button-save.css);
+@import url(../blocks/full-image/full-image.css);
+@import url(../blocks/full-image/__caption/full-image__caption.css);
 
 /* Заготовка на медиазапрос
 
