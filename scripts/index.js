@@ -56,7 +56,6 @@ const popupForm = popupEdit.querySelector('.popup__container'); // Находи�
 
 const changePopupEditState = () => {
   popupEdit.classList.toggle('popup_opened'); // Добавляем/удаляем класс popup_opened
-  popupForm.reset() // Сбрасываем форму
 }
 
 const profileEditButton = content.querySelector('.profile__button_edit'); // Находим кнопку редактирования профиля
