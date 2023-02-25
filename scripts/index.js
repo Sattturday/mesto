@@ -67,7 +67,15 @@ popups.forEach((popup) => {
       closePopup(popup)
     }
   })
+
+  document.addEventListener('keyup', (e) => {
+    if (e.code === 'Escape') {
+      closePopup(popup);
+    }
+  })
 })
+
+
 
 // обработчик клика на картинку карточки
 const handleCardClick = (link, name) => {
@@ -127,7 +135,7 @@ const handleAddCardSubmit = (evt) => {
   closePopup(popupAddCard);
 }
 
-addCardForm.addEventListener('submit', handleAddCardSubmit); // Прикрепляем обработчик к форме
+addCardForm.addEventListener('submit', handleAddCardSubmit);
 
 // Обработчик «отправки» формы редактирования профиля
 const handleFormEditSubmit = (evt) => {

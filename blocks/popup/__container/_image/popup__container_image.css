@@ -3,6 +3,9 @@
   width: auto;
   aspect-ratio: auto;
   background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 @media screen and (max-width: 424px) {
