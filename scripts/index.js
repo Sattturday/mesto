@@ -47,8 +47,15 @@ const popupImage = document.querySelector('.popup_for_full-image'); // попа�
 const fullImage = popupImage.querySelector('.popup__full-image'); // image in popup
 const fullImageCaption = popupImage.querySelector('.popup__caption'); // caption in popup
 
+const closePopupEsc = (event, popup) => {
+  if (event.code === 'Escape') {
+    closePopup(popup);
+  }
+}
+
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
+  document.addEventListener('keyup', (event) => closePopupEsc(event, popup));
 }
 
 profileEditButton.addEventListener('click', () => openPopup(popupProfile));
@@ -56,6 +63,7 @@ addCardButton.addEventListener('click', () => openPopup(popupAddCard));
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keyup', (event) => closePopupEsc(event, popup));
 }
 
 popups.forEach((popup) => {
@@ -65,12 +73,6 @@ popups.forEach((popup) => {
     }
     if (evt.target.classList.contains('popup__close')) {
       closePopup(popup)
-    }
-  })
-
-  document.addEventListener('keyup', (e) => {
-    if (e.code === 'Escape') {
-      closePopup(popup);
     }
   })
 })
@@ -85,7 +87,6 @@ const handleCardClick = (link, name) => {
   openPopup(popupImage);
 }
 
-// создаем карточку
 const createCard = (element) => {
   const cardElement = cardTemplate.querySelector('.cards__item').cloneNode(true); // Клонируем содержимое
   cardElement.querySelector('.cards__title').textContent = element.name; // Вписываем название карточки
