@@ -47,23 +47,30 @@ const popupImage = document.querySelector('.popup_for_full-image'); // попа�
 const fullImage = popupImage.querySelector('.popup__full-image'); // image in popup
 const fullImageCaption = popupImage.querySelector('.popup__caption'); // caption in popup
 
-const closePopupEsc = (event, popup) => {
-  if (event.code === 'Escape') {
-    closePopup(popup);
+const closeByEscape = (evt) => {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
   }
 }
 
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-  document.addEventListener('keyup', (event) => closePopupEsc(event, popup));
+  document.addEventListener('keydown', closeByEscape);
 }
 
-profileEditButton.addEventListener('click', () => openPopup(popupProfile));
+profileEditButton.addEventListener('click', () => {
+  profileForm.reset();
+  inputProfileName.setAttribute('value', profileName.textContent);
+  inputProfileJob.setAttribute('value', profileJob.textContent);
+  openPopup(popupProfile);
+});
+
 addCardButton.addEventListener('click', () => openPopup(popupAddCard));
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keyup', (event) => closePopupEsc(event, popup));
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 popups.forEach((popup) => {
@@ -77,8 +84,6 @@ popups.forEach((popup) => {
   })
 })
 
-
-
 // обработчик клика на картинку карточки
 const handleCardClick = (link, name) => {
   fullImage.setAttribute('src', link); // Вставляем ссылку на изображение
@@ -88,12 +93,12 @@ const handleCardClick = (link, name) => {
 }
 
 const createCard = (element) => {
-  const cardElement = cardTemplate.querySelector('.cards__item').cloneNode(true); // Клонируем содержимое
-  cardElement.querySelector('.cards__title').textContent = element.name; // Вписываем название карточки
+  const cardElement = cardTemplate.querySelector('.cards__item').cloneNode(true);
+  cardElement.querySelector('.cards__title').textContent = element.name;
 
-  const cardImage = cardElement.querySelector('.cards__image'); // Находим имг
-  cardImage.setAttribute('src', element.link); // Вставляем ссылку на изображение
-  cardImage.setAttribute('alt', element.name); // Вставляем значение атрибута alt
+  const cardImage = cardElement.querySelector('.cards__image');
+  cardImage.setAttribute('src', element.link);
+  cardImage.setAttribute('alt', element.name);
 
   // просмотр полного изображения
   cardImage.addEventListener('click', () => handleCardClick(element.link, element.name));
@@ -118,17 +123,14 @@ initialCards.forEach((element) => {
   cardsList.append(cardElement);
 })
 
-// обработчик «отправки» формы создания карточки
 const handleAddCardSubmit = (evt) => {
   evt.preventDefault();
 
-  // получаем значение полей из свойства value и записываем в объект
   const element = {
     name: inputAddCardName.value,
     link: inputAddCardLink.value
   };
 
-  // готовим карточку и вставляем ee
   const cardElement = createCard(element);
   cardsList.prepend(cardElement);
 
@@ -138,15 +140,12 @@ const handleAddCardSubmit = (evt) => {
 
 addCardForm.addEventListener('submit', handleAddCardSubmit);
 
-// Обработчик «отправки» формы редактирования профиля
 const handleFormEditSubmit = (evt) => {
   evt.preventDefault();
 
-  // Получаем значение полей из свойства value
   const name = inputProfileName.value;
   const job = inputProfileJob.value;
 
-  // Вставляем новые значения в профиль с помощью textContent
   profileName.textContent = name;
   profileJob.textContent = job;
 
