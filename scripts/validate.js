@@ -16,7 +16,12 @@ const hideInputError = (formElement, inputElement, object) => {
 // Функция, которая проверяет валидность поля
 const isValid = (formElement, inputElement, object) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage, object);
+    showInputError(
+      formElement,
+      inputElement,
+      inputElement.validationMessage,
+      object
+    );
   } else {
     hideInputError(formElement, inputElement, object);
   }
@@ -29,7 +34,7 @@ const hasInvalidInput = (inputList) => {
     // Обход массива прекратится и вся функция
     // hasInvalidInput вернёт true
     return !inputElement.validity.valid;
-  })
+  });
 };
 
 const toggleButtonState = (inputList, buttonElement, object) => {
@@ -43,7 +48,9 @@ const toggleButtonState = (inputList, buttonElement, object) => {
 };
 
 const setEventListeners = (formElement, object) => {
-  const inputList = Array.from(formElement.querySelectorAll(object.inputSelector));
+  const inputList = Array.from(
+    formElement.querySelectorAll(object.inputSelector)
+  );
   const buttonElement = formElement.querySelector(object.submitButtonSelector);
 
   toggleButtonState(inputList, buttonElement, object);
@@ -65,12 +72,16 @@ const enableValidation = (object) => {
     });
 
     formElement.addEventListener('reset', () => {
-      const buttonElement = formElement.querySelector(object.submitButtonSelector);
+      const buttonElement = formElement.querySelector(
+        object.submitButtonSelector
+      );
       buttonElement.classList.add(object.inactiveButtonClass);
       buttonElement.setAttribute('disabled', true);
     });
 
-    const fieldsetList = Array.from(formElement.querySelectorAll(object.fieldSetSelector));
+    const fieldsetList = Array.from(
+      formElement.querySelectorAll(object.fieldSetSelector)
+    );
     fieldsetList.forEach((fieldSet) => {
       setEventListeners(fieldSet, object);
     });
@@ -84,5 +95,5 @@ enableValidation({
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_disabled',
   inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
+  errorClass: 'popup__error_visible',
 });
