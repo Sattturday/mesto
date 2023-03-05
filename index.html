@@ -1,99 +1,138 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Место</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
-  <title>Место</title>
-</head>
+  <body class="page">
+    <header class="header">
+      <div class="header__logo"></div>
+    </header>
 
-<body class="page">
-  <header class="header">
-    <div class="header__logo"></div>
-  </header>
+    <main class="content">
+      <section class="profile" aria-label="Профиль">
+        <div class="profile__info">
+          <img
+            src="./images/profile-avatar.jpg"
+            alt="Аватар"
+            class="profile__avatar"
+          />
+          <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+          <button
+            type="button"
+            class="profile__button profile__button_edit"
+          ></button>
+          <p class="profile__info-job">Исследователь океана</p>
+        </div>
+        <button
+          type="button"
+          class="profile__button profile__button_add"
+        ></button>
+      </section>
 
-  <main class="content">
-    <section class="profile" aria-label="Профиль">
-      <div class="profile__info">
-        <img src="./images/profile-avatar.jpg" alt="Аватар" class="profile__avatar">
-        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-        <button type="button" class="profile__button profile__button_edit"></button>
-        <p class="profile__info-job">Исследователь океана</p>
+      <section class="elements" aria-label="Места">
+        <ul class="cards"></ul>
+      </section>
+
+      <div class="popup popup_for_edit-profile">
+        <form class="popup__container" novalidate>
+          <button type="button" class="popup__close"></button>
+          <p class="popup__title">Редактировать профиль</p>
+          <fieldset class="popup__items">
+            <input
+              required
+              minlength="2"
+              maxlength="40"
+              type="text"
+              class="popup__input popup__input_name"
+              name="userName"
+              placeholder="Имя"
+              value="Жак-Ив Кусто"
+              id="user-name"
+            />
+            <span class="popup__error user-name-error"></span>
+
+            <input
+              required
+              minlength="2"
+              maxlength="200"
+              type="text"
+              class="popup__input popup__input_job"
+              name="userJob"
+              placeholder="Род деятельности"
+              value="Исследователь океана"
+              id="user-job"
+            />
+            <span class="popup__error user-job-error"></span>
+
+            <button type="submit" class="popup__button">Сохранить</button>
+          </fieldset>
+        </form>
       </div>
-      <button type="button" class="profile__button profile__button_add"></button>
-    </section>
 
-    <section class="elements" aria-label="Места">
-      <ul class="cards">
+      <div class="popup popup_for_add-card">
+        <form class="popup__container">
+          <button type="button" class="popup__close"></button>
+          <p class="popup__title">Новое место</p>
+          <fieldset class="popup__items">
+            <input
+              required
+              type="text"
+              minlength="2"
+              maxlength="30"
+              class="popup__input popup__input_card-name"
+              name="cardName"
+              placeholder="Название"
+              value=""
+              id="card-name"
+            />
+            <span class="popup__error card-name-error"></span>
 
-      </ul>
-    </section>
+            <input
+              required
+              type="url"
+              class="popup__input popup__input_card-link-image"
+              name="cardLink"
+              placeholder="Ссылка на картинку"
+              value=""
+              id="card-link"
+            />
+            <span class="popup__error card-link-error"></span>
 
-    <div class="popup popup_for_edit-profile">
-      <form class="popup__container" novalidate>
-        <button type="button" class="popup__close"></button>
-        <p class="popup__title">Редактировать профиль</p>
-        <fieldset class="popup__items">
-
-          <input required minlength="2" maxlength="40" type="text" class="popup__input popup__input_name"
-            name="userName" placeholder="Имя" value="Жак-Ив Кусто" id="user-name">
-          <span class="popup__error user-name-error"></span>
-
-          <input required minlength="2" maxlength="200" type="text" class="popup__input popup__input_job" name="userJob"
-            placeholder="Род деятельности" value="Исследователь океана" id="user-job">
-          <span class="popup__error user-job-error"></span>
-
-          <button type="submit" class="popup__button">Сохранить</button>
-        </fieldset>
-      </form>
-    </div>
-
-    <div class="popup popup_for_add-card">
-      <form class="popup__container">
-        <button type="button" class="popup__close"></button>
-        <p class="popup__title">Новое место</p>
-        <fieldset class="popup__items">
-
-          <input required type="text" minlength="2" maxlength="30" class="popup__input popup__input_card-name"
-            name="cardName" placeholder="Название" value='' id="card-name">
-          <span class="popup__error card-name-error"></span>
-
-          <input required type="url" class="popup__input popup__input_card-link-image" name="cardLink"
-            placeholder="Ссылка на картинку" value='' id="card-link">
-          <span class="popup__error card-link-error"></span>
-
-          <button type="submit" class="popup__button">Создать</button>
-        </fieldset>
-      </form>
-    </div>
-
-    <div class="popup popup_for_full-image">
-      <figure class="popup__container-image">
-        <button type="button" class="popup__close"></button>
-        <img class="popup__full-image" src="#" alt="">
-        <figcaption class="popup__caption"></figcaption>
-      </figure>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-  </footer>
-
-  <template class="card-template">
-    <li class="cards__item">
-      <img class="cards__image" src="#" alt="">
-      <button type="button" class="cards__delete"></button>
-      <div class="cards__info">
-        <h2 class="cards__title"></h2>
-        <button type="button" class="cards__like"></button>
+            <button type="submit" class="popup__button">Создать</button>
+          </fieldset>
+        </form>
       </div>
-    </li>
-  </template>
 
-  <script src="./scripts/index.js"></script>
-  <script src="./scripts/validate.js"></script>
-</body>
+      <div class="popup popup_for_full-image">
+        <figure class="popup__container-image">
+          <button type="button" class="popup__close"></button>
+          <img class="popup__full-image" src="#" alt="" />
+          <figcaption class="popup__caption"></figcaption>
+        </figure>
+      </div>
+    </main>
 
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+
+    <template class="card-template">
+      <li class="cards__item">
+        <img class="cards__image" src="#" alt="" />
+        <button type="button" class="cards__delete"></button>
+        <div class="cards__info">
+          <h2 class="cards__title"></h2>
+          <button type="button" class="cards__like"></button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./scripts/consts.js"></script>
+    <script src="./scripts/valid.js"></script>
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>

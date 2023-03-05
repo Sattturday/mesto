@@ -1,30 +1,3 @@
-const initialCards = [
-  {
-    name: 'Камчатка',
-    link: './images/cards-kamchatka.jpg',
-  },
-  {
-    name: 'Белорецк',
-    link: './images/cards-beloretsk.jpg',
-  },
-  {
-    name: 'Урал',
-    link: './images/cards-ural.jpg',
-  },
-  {
-    name: 'Покров',
-    link: './images/cards-pokrov.jpg',
-  },
-  {
-    name: 'Летний Байкал',
-    link: './images/cards-baikal-leto.jpg',
-  },
-  {
-    name: 'Байкал заледенел',
-    link: './images/cards-baikal-zima.jpg',
-  },
-];
-
 const popups = document.querySelectorAll('.popup'); // находим все попапы
 
 const profileEditButton = document.querySelector('.profile__button_edit'); // находим кнопку редактирования профиля
@@ -161,3 +134,5 @@ const handleFormEditSubmit = (evt) => {
 };
 
 profileForm.addEventListener('submit', handleFormEditSubmit); // Прикрепляем обработчик к форме
+
+enableValidation(validationOptions);
