@@ -41,7 +41,10 @@ profileEditButton.addEventListener('click', () => {
   openPopup(popupProfile);
 });
 
-addCardButton.addEventListener('click', () => openPopup(popupAddCard));
+addCardButton.addEventListener('click', () => {
+  addCardForm.reset();
+  openPopup(popupAddCard);
+});
 
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
@@ -115,7 +118,6 @@ const handleAddCardSubmit = (evt) => {
   const cardElement = createCard(element);
   cardsList.prepend(cardElement);
 
-  addCardForm.reset();
   closePopup(popupAddCard);
 };
 
@@ -135,4 +137,4 @@ const handleFormEditSubmit = (evt) => {
 
 profileForm.addEventListener('submit', handleFormEditSubmit); // Прикрепляем обработчик к форме
 
-enableValidation(validationOptions);
+// enableValidation(validationOptions);
