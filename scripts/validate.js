@@ -49,7 +49,7 @@ const toggleButtonState = (inputs, submitButton, inactiveButtonClass) => {
   const formIsValid = inputs.every(
     (inputElement) => inputElement.validity.valid
   );
-  console.log(formIsValid);
+
   if (formIsValid) {
     enableButton(submitButton, inactiveButtonClass);
   } else {
