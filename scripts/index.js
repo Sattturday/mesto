@@ -10,15 +10,18 @@ const openPopup = (popup) => {
   document.addEventListener('keydown', closeByEscape);
 };
 
-profileEditButton.addEventListener('click', () => {
+const handleEditProfile = () => {
   profileForm.reset();
   inputProfileName.setAttribute('value', profileName.textContent);
   inputProfileJob.setAttribute('value', profileJob.textContent);
+  resetValidation(profileForm, validationOptions);
   openPopup(popupProfile);
-});
+};
+
+profileEditButton.addEventListener('click', handleEditProfile);
 
 addCardButton.addEventListener('click', () => {
-  addCardForm.reset();
+  resetValidation(addCardForm, validationOptions);
   openPopup(popupAddCard);
 });
 
