@@ -18,13 +18,6 @@ const handleEditProfile = () => {
   openPopup(popupProfile);
 };
 
-profileEditButton.addEventListener('click', handleEditProfile);
-
-addCardButton.addEventListener('click', () => {
-  resetValidation(addCardForm, validationOptions);
-  openPopup(popupAddCard);
-});
-
 const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
@@ -43,9 +36,9 @@ popups.forEach((popup) => {
 
 // обработчик клика на картинку карточки
 const handleCardClick = (link, name) => {
-  fullImage.setAttribute('src', link); // Вставляем ссылку на изображение
-  fullImage.setAttribute('alt', name); // Прописываем изображению alt
-  fullImageCaption.textContent = name; // Вставляем значение атрибута alt
+  fullImage.setAttribute('src', link);
+  fullImage.setAttribute('alt', name);
+  fullImageCaption.textContent = name;
   openPopup(popupImage);
 };
 
@@ -59,17 +52,14 @@ const createCard = (element) => {
   cardImage.setAttribute('src', element.link);
   cardImage.setAttribute('alt', element.name);
 
-  // просмотр полного изображения
   cardImage.addEventListener('click', () =>
     handleCardClick(element.link, element.name)
   );
 
-  // лайки
   cardElement.querySelector('.cards__like').addEventListener('click', (evt) => {
     evt.target.classList.toggle('cards__like_active');
   });
 
-  // удаление
   cardElement
     .querySelector('.cards__delete')
     .addEventListener('click', (evt) => {
@@ -102,8 +92,6 @@ const handleAddCardSubmit = (evt) => {
   closePopup(popupAddCard);
 };
 
-addCardForm.addEventListener('submit', handleAddCardSubmit);
-
 const handleFormEditSubmit = (evt) => {
   evt.preventDefault();
 
@@ -116,6 +104,13 @@ const handleFormEditSubmit = (evt) => {
   closePopup(popupProfile);
 };
 
-profileForm.addEventListener('submit', handleFormEditSubmit); // Прикрепляем обработчик к форме
+profileEditButton.addEventListener('click', handleEditProfile);
+addCardButton.addEventListener('click', () => {
+  resetValidation(addCardForm, validationOptions);
+  openPopup(popupAddCard);
+});
+
+profileForm.addEventListener('submit', handleFormEditSubmit);
+addCardForm.addEventListener('submit', handleAddCardSubmit);
 
 enableValidation(validationOptions);
