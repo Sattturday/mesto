@@ -1,7 +1,5 @@
-// test branch
-
 const hiddenInputError = (inputElement, errorElement, options) => {
-  errorElement.textContent = "";
+  errorElement.textContent = '';
   errorElement.classList.remove(options.errorClass);
   inputElement.classList.remove(options.inputErrorClass);
 };
@@ -38,12 +36,12 @@ const toggleErrorForInput = (inputElement, options) => {
 };
 
 const enableButton = (submitButton, inactiveButtonClass) => {
-  submitButton.removeAttribute("disabled");
+  submitButton.removeAttribute('disabled');
   submitButton.classList.remove(inactiveButtonClass);
 };
 
 const disableButton = (submitButton, inactiveButtonClass) => {
-  submitButton.setAttribute("disabled", true);
+  submitButton.setAttribute('disabled', true);
   submitButton.classList.add(inactiveButtonClass);
 };
 
@@ -64,7 +62,7 @@ const setEventListeners = (form, options) => {
   const inputs = Array.from(form.querySelectorAll(options.inputSelector));
 
   inputs.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
+    inputElement.addEventListener('input', () => {
       toggleInputState(inputElement, options);
       toggleButtonState(inputs, submitButton, options.inactiveButtonClass);
     });
