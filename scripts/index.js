@@ -28,6 +28,16 @@ const initialCards = [
   },
 ];
 
+const config = {
+  formSelector: '.popup__container', // form
+  fieldSetSelector: '.popup__items', // fieldset
+  inputSelector: '.popup__input', // input
+  submitButtonSelector: '.popup__button', // submit
+  inactiveButtonClass: 'popup__button_disabled', // submit disabled
+  inputErrorClass: 'popup__input_type_error', // red border-bottom
+  errorClass: 'popup__error_visible', // show mistakes
+};
+
 const popups = document.querySelectorAll('.popup'); // все попапы
 
 const profileEditButton = document.querySelector('.profile__button_edit'); // кнопкa ред. профиля
@@ -47,7 +57,6 @@ const inputAddCardLink = popupAddCard.querySelector(
 ); // поле для ссылки
 
 const cardsList = document.querySelector('.cards'); // место для карточек
-const cardTemplate = document.querySelector('.card-template').content; // темплейт с карточкий
 const popupImage = document.querySelector('.popup_for_full-image'); // попап с картинкой
 const fullImage = popupImage.querySelector('.popup__full-image'); // image in popup
 const fullImageCaption = popupImage.querySelector('.popup__caption'); // caption in popup
@@ -68,7 +77,7 @@ const handleEditProfile = () => {
   profileForm.reset();
   inputProfileName.setAttribute('value', profileName.textContent);
   inputProfileJob.setAttribute('value', profileJob.textContent);
-  //  resetValidation(profileForm, validationOptions);
+  validatorProfileForm.resetValidation();
   openPopup(popupProfile);
 };
 
@@ -132,11 +141,15 @@ const handleFormEditSubmit = (evt) => {
 
 profileEditButton.addEventListener('click', handleEditProfile);
 addCardButton.addEventListener('click', () => {
-  //  resetValidation(addCardForm, validationOptions);
+  validatorAddCardForm.resetValidation();
   openPopup(popupAddCard);
 });
 
 profileForm.addEventListener('submit', handleFormEditSubmit);
 addCardForm.addEventListener('submit', handleAddCardSubmit);
 
-//enableValidation(validationOptions);
+const validatorProfileForm = new FormValidator(config, profileForm);
+validatorProfileForm.enableValidation();
+
+const validatorAddCardForm = new FormValidator(config, addCardForm);
+validatorAddCardForm.enableValidation();
