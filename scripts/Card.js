@@ -1,44 +1,50 @@
 class Card {
   static _template = document.querySelector('.card-template').content;
 
-  constructor(element) {
+  constructor(element, handleCardClick) {
     this._name = element.name;
     this._link = element.link;
+    this._handleCardClick = handleCardClick;
   }
 
-  newCard() {
+  _fillCard = () => {
+    this._view.querySelector('.cards__title').textContent = this._name;
+
+    this._image = this._view.querySelector('.cards__image');
+    this._image.setAttribute('src', this._link);
+    this._image.setAttribute('alt', this._name);
+  };
+
+  _zoomCard = () => this._handleCardClick(this._link, this._name);
+
+  _likeCard = (evt) => evt.target.classList.toggle('cards__like_active');
+
+  _deleteCard = (evt) => {
+    const card = evt.target.closest('.cards__item');
+    card.remove();
+  };
+
+  _setEventListeners = () => {
+    this._image.addEventListener('click', this._zoomCard);
+
+    this._view
+      .querySelector('.cards__like')
+      .addEventListener('click', this._likeCard);
+
+    this._view
+      .querySelector('.cards__delete')
+      .addEventListener('click', this._deleteCard);
+  };
+
+  newCard = () => {
     this._view = Card._template.cloneNode(true).children[0];
 
+    this._fillCard();
+
+    this._setEventListeners();
+
     return this._view;
-  }
+  };
 }
-
-// const createCard = (element) => {
-//   const cardElement = cardTemplate
-//     .querySelector('.cards__item')
-//     .cloneNode(true);
-//   cardElement.querySelector('.cards__title').textContent = element.name;
-
-//   const cardImage = cardElement.querySelector('.cards__image');
-//   cardImage.setAttribute('src', element.link);
-//   cardImage.setAttribute('alt', element.name);
-
-//   cardImage.addEventListener('click', () =>
-//     handleCardClick(element.link, element.name)
-//   );
-
-//   cardElement.querySelector('.cards__like').addEventListener('click', (evt) => {
-//     evt.target.classList.toggle('cards__like_active');
-//   });
-
-//   cardElement
-//     .querySelector('.cards__delete')
-//     .addEventListener('click', (evt) => {
-//       const card = evt.target.closest('.cards__item');
-//       card.remove();
-//     });
-
-//   return cardElement;
-// };
 
 export default Card;

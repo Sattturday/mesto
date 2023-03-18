@@ -98,7 +98,7 @@ const handleCardClick = (link, name) => {
 
 // вставляем карточки при загрузке
 initialCards.forEach((element) => {
-  const cardElement = new Card(element);
+  const cardElement = new Card(element, handleCardClick);
   cardsList.append(cardElement.newCard());
 });
 
@@ -111,7 +111,7 @@ const handleAddCardSubmit = (evt) => {
     link: inputAddCardLink.value,
   };
 
-  const cardElement = new Card(element);
+  const cardElement = new Card(element, handleCardClick);
   cardsList.prepend(cardElement.newCard());
 
   addCardForm.reset();
