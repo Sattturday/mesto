@@ -20,8 +20,9 @@ class Card {
   _likeCard = (evt) => evt.target.classList.toggle('cards__like_active');
 
   _deleteCard = (evt) => {
-    const card = evt.target.closest('.cards__item');
-    card.remove();
+    this._card = evt.target.closest('.cards__item');
+    this._card.remove();
+    this._card = null;
   };
 
   _setEventListeners = () => {
