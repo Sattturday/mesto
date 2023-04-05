@@ -1,29 +1,47 @@
 // cards
+const kamchatkaImage = new URL(
+  '../images/cards-kamchatka.jpg',
+  import.meta.url
+);
+const beloretskImage = new URL(
+  '../images/cards-beloretsk.jpg',
+  import.meta.url
+);
+const uralImage = new URL('../images/cards-ural.jpg', import.meta.url);
+const pokrovImage = new URL('../images/cards-pokrov.jpg', import.meta.url);
+const baikalLetoImage = new URL(
+  '../images/cards-baikal-leto.jpg',
+  import.meta.url
+);
+const baikalZimaImage = new URL(
+  '../images/cards-baikal-zima.jpg',
+  import.meta.url
+);
 
 export const initialCards = [
   {
     cardName: 'Камчатка',
-    cardLink: './images/cards-kamchatka.jpg',
+    cardLink: kamchatkaImage,
   },
   {
     cardName: 'Белорецк',
-    cardLink: './images/cards-beloretsk.jpg',
+    cardLink: beloretskImage,
   },
   {
     cardName: 'Урал',
-    cardLink: './images/cards-ural.jpg',
+    cardLink: uralImage,
   },
   {
     cardName: 'Покров',
-    cardLink: './images/cards-pokrov.jpg',
+    cardLink: pokrovImage,
   },
   {
     cardName: 'Летний Байкал',
-    cardLink: './images/cards-baikal-leto.jpg',
+    cardLink: baikalLetoImage,
   },
   {
     cardName: 'Байкал заледенел',
-    cardLink: './images/cards-baikal-zima.jpg',
+    cardLink: baikalZimaImage,
   },
 ];
 
