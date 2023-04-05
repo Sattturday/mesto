@@ -1,9 +1,9 @@
-class Card {
+export default class Card {
   static _template = document.querySelector('.card-template').content;
 
   constructor(element, handleCardClick) {
-    this._name = element.name;
-    this._link = element.link;
+    this._name = element.cardName;
+    this._link = element.cardLink;
     this._handleCardClick = handleCardClick;
   }
 
@@ -47,5 +47,3 @@ class Card {
     return this._view;
   };
 }
-
-export default Card;
