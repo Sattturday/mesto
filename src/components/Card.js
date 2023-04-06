@@ -1,9 +1,8 @@
 export default class Card {
-  static _template = document.querySelector('.card-template').content;
-
-  constructor(element, handleCardClick) {
-    this._name = element.cardName;
-    this._link = element.cardLink;
+  constructor(cardData, templateSelector, handleCardClick) {
+    this._name = cardData.cardName;
+    this._link = cardData.cardLink;
+    this._template = document.querySelector(templateSelector).content;
     this._handleCardClick = handleCardClick;
   }
 
@@ -11,34 +10,33 @@ export default class Card {
     this._view.querySelector('.cards__title').textContent = this._name;
 
     this._image = this._view.querySelector('.cards__image');
-    this._image.setAttribute('src', this._link);
-    this._image.setAttribute('alt', this._name);
+    this._image.src = this._link;
+    this._image.alt = this._name;
   };
 
   _zoomCard = () => this._handleCardClick(this._link, this._name);
 
-  _likeCard = (evt) => evt.target.classList.toggle('cards__like_active');
+  _likeCard = () =>
+    this._cardLikeElement.classList.toggle('cards__like_active');
 
-  _deleteCard = (evt) => {
-    this._card = evt.target.closest('.cards__item');
-    this._card.remove();
-    this._card = null;
+  _deleteCard = () => {
+    this._view.remove();
+    this._view = null;
   };
 
   _setEventListeners = () => {
     this._image.addEventListener('click', this._zoomCard);
 
-    this._view
-      .querySelector('.cards__like')
-      .addEventListener('click', this._likeCard);
+    this._cardLikeElement = this._view.querySelector('.cards__like');
+    this._cardLikeElement.addEventListener('click', this._likeCard);
 
     this._view
       .querySelector('.cards__delete')
       .addEventListener('click', this._deleteCard);
   };
 
-  newCard = () => {
-    this._view = Card._template.cloneNode(true).children[0];
+  createCard = () => {
+    this._view = this._template.cloneNode(true).children[0];
 
     this._fillCard();
 

@@ -12,12 +12,12 @@ export default class Section {
   renderItems() {
     this._clear();
 
-    this._renderedItems.forEach((item) => {
-      this._renderer(item);
+    this._renderedItems.forEach((cardData) => {
+      this._renderer(cardData);
     });
   }
 
-  setItem(element) {
-    this._container.prepend(element);
+  setItem(card) {
+    this._container.prepend(card);
   }
 }

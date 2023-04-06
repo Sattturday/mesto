@@ -45,7 +45,8 @@ export const initialCards = [
   },
 ];
 
-export const cardsListSelector = '.cards';
+export const templateSelector = '.card-template';
+export const cardsSectionSelector = '.cards';
 
 // popups
 export const popupImageSelector = '.popup_for_full-image';
@@ -60,12 +61,12 @@ export const profileJobSelector = '.profile__info-job';
 export const profileEditButton = document.querySelector(
   '.profile__button_edit'
 );
-export const addCardButton = document.querySelector('.profile__button_add');
+export const cardAddButton = document.querySelector('.profile__button_add');
 
 // validation
 export const profileForm = document.forms.profileForm;
-export const addCardForm = document.forms.addCardForm;
-export const config = {
+export const cardAddForm = document.forms.cardAddForm;
+export const validationConfig = {
   formSelector: '.popup__container', // form
   fieldSetSelector: '.popup__items', // fieldset
   inputSelector: '.popup__input', // input
