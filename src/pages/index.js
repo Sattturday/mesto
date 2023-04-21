@@ -21,8 +21,6 @@ import {
   templateSelector,
 } from '../utils/constants.js';
 
-// variables
-
 // classes
 const userInfo = new UserInfo(profileNameSelector, profileJobSelector);
 
