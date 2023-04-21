@@ -1,4 +1,5 @@
 import './index.css';
+import Api from '../components/Api.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import Card from '../components/Card.js';
@@ -6,7 +7,7 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import FormValidator from '../components/FormValidator.js';
 import {
-  initialCards,
+  // initialCards,
   cardsSectionSelector,
   profileEditButton,
   cardAddButton,
@@ -21,16 +22,23 @@ import {
   templateSelector,
 } from '../utils/constants.js';
 
-// classes
+const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
+  headers: {
+    authorization: 'e9e03bd6-0a44-4b6f-b71f-07a0b3838a9d',
+    'Content-Type': 'application/json',
+  },
+});
+
+Promise.all([api.getUserInfo(), api.getInitialCards()]).then(([me, cards]) => {
+  userInfo.setUserInfo(me);
+  cardsSection.renderItems(cards);
+});
+
 const userInfo = new UserInfo(profileNameSelector, profileJobSelector);
 
 const cardsSection = new Section(
-  {
-    data: initialCards,
-    renderer: (cardData) => {
-      cardsSection.setItem(generateCard(cardData));
-    },
-  },
+  (cardItem) => cardsSection.setItem(generateCard(cardItem)),
   cardsSectionSelector
 );
 
@@ -70,7 +78,6 @@ const handleCardClick = (name, link) => {
   popupWithImage.open(name, link);
 };
 
-cardsSection.renderItems();
 validatorProfileForm.enableValidation();
 validatorCardAddForm.enableValidation();
 
@@ -81,3 +88,7 @@ cardAddButton.addEventListener('click', openPopupAddCard);
 popupEditProfile.setEventListeners();
 popupWithImage.setEventListeners();
 popupAddCard.setEventListeners();
+
+console.log('hi people ПР9');
+
+//# sourceMappingURL=/dist/app.js.map

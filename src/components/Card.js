@@ -1,7 +1,7 @@
 export default class Card {
   constructor(cardData, templateSelector, handleCardClick) {
-    this._name = cardData.cardName;
-    this._link = cardData.cardLink;
+    this._name = cardData.name;
+    this._link = cardData.link;
     this._template = document.querySelector(templateSelector).content;
     this._handleCardClick = handleCardClick;
   }
@@ -41,7 +41,6 @@ export default class Card {
     this._fillCard();
 
     this._setEventListeners();
-
     return this._view;
   };
 }
