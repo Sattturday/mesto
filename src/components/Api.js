@@ -33,4 +33,22 @@ export default class Api {
         };
       });
   }
+
+  setUserInfo({ userJob, userName }) {
+    return fetch(`${this.baseUrl}/users/me`, {
+      method: 'PATCH',
+      headers: this.headers,
+      body: JSON.stringify({
+        name: userName,
+        about: userJob,
+      }),
+    })
+      .then(this._checkAnswer)
+      .then((result) => {
+        return {
+          userName: result.name,
+          userJob: result.about,
+        };
+      });
+  }
 }

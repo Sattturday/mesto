@@ -43,7 +43,19 @@ const cardsSection = new Section(
 );
 
 const popupEditProfile = new PopupWithForm(popupProfileSelector, (data) => {
-  userInfo.setUserInfo(data);
+  popupEditProfile.renderLoading(true);
+  api
+    .setUserInfo(data)
+    .then((data) => {
+      userInfo.setUserInfo(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      popupEditProfile.renderLoading(false);
+    });
+  popupEditProfile.renderLoading(false);
   popupEditProfile.close();
 });
 
