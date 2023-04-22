@@ -62,7 +62,18 @@ const popupEditProfile = new PopupWithForm(popupProfileSelector, (data) => {
 const popupWithImage = new PopupWithImage(popupImageSelector);
 
 const popupAddCard = new PopupWithForm(popupAddCardSelector, (cardData) => {
-  cardsSection.setItem(generateCard(cardData));
+  popupAddCard.renderLoading(true);
+  api
+    .addCard(cardData)
+    .then((cardData) => {
+      cardsSection.setItem(generateCard(cardData));
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      popupAddCard.renderLoading(false);
+    });
   popupAddCard.close();
 });
 
@@ -101,6 +112,6 @@ popupEditProfile.setEventListeners();
 popupWithImage.setEventListeners();
 popupAddCard.setEventListeners();
 
-console.log('hi people ПР9');
+console.log('hi, people! ПР9 tonight :)');
 
 //# sourceMappingURL=/dist/app.js.map

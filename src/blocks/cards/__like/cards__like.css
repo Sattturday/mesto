@@ -1,15 +1,8 @@
 .cards__like {
-  width: 22px;
-  height: 19px;
-  background-image: url(../../../images/cards-like.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.cards__like:hover {
-  opacity: 0.5;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  justify-content: flex-end;
+  height: 40px;
 }

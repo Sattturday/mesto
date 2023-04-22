@@ -17,7 +17,7 @@ export default class Card {
   _zoomCard = () => this._handleCardClick(this._link, this._name);
 
   _likeCard = () =>
-    this._cardLikeElement.classList.toggle('cards__like_active');
+    this._cardLikeElement.classList.toggle('cards__like-icon_active');
 
   _deleteCard = () => {
     this._view.remove();
@@ -27,7 +27,7 @@ export default class Card {
   _setEventListeners = () => {
     this._image.addEventListener('click', this._zoomCard);
 
-    this._cardLikeElement = this._view.querySelector('.cards__like');
+    this._cardLikeElement = this._view.querySelector('.cards__like-icon');
     this._cardLikeElement.addEventListener('click', this._likeCard);
 
     this._view

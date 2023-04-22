@@ -11,16 +11,6 @@ export default class Api {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  getInitialCards() {
-    return fetch(`${this.baseUrl}/cards`, {
-      headers: this.headers,
-    })
-      .then(this._checkAnswer)
-      .then((result) => {
-        return result;
-      });
-  }
-
   getUserInfo() {
     return fetch(`${this.baseUrl}/users/me`, {
       headers: this.headers,
@@ -50,5 +40,22 @@ export default class Api {
           userJob: result.about,
         };
       });
+  }
+
+  getInitialCards() {
+    return fetch(`${this.baseUrl}/cards`, {
+      headers: this.headers,
+    }).then(this._checkAnswer);
+  }
+
+  addCard({ cardName, cardLink }) {
+    return fetch(`${this.baseUrl}/cards`, {
+      method: 'POST',
+      headers: this.headers,
+      body: JSON.stringify({
+        name: cardName,
+        link: cardLink,
+      }),
+    }).then(this._checkAnswer);
   }
 }
