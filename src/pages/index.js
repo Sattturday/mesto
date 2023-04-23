@@ -22,6 +22,8 @@ import {
   templateSelector,
 } from '../utils/constants.js';
 
+const cards = {};
+
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
   headers: {
@@ -31,7 +33,8 @@ const api = new Api({
 });
 
 Promise.all([api.getUserInfo(), api.getInitialCards()]).then(([me, cards]) => {
-  userInfo.setUserInfo(me);
+  userInfo.remember(me);
+  userInfo.setUserInfo();
   cardsSection.renderItems(cards);
 });
 
@@ -47,7 +50,8 @@ const popupEditProfile = new PopupWithForm(popupProfileSelector, (data) => {
   api
     .setUserInfo(data)
     .then((data) => {
-      userInfo.setUserInfo(data);
+      userInfo.remember(data);
+      userInfo.setUserInfo();
     })
     .catch((err) => {
       console.log(err);
@@ -55,7 +59,6 @@ const popupEditProfile = new PopupWithForm(popupProfileSelector, (data) => {
     .finally(() => {
       popupEditProfile.renderLoading(false);
     });
-  popupEditProfile.renderLoading(false);
   popupEditProfile.close();
 });
 
@@ -93,12 +96,31 @@ const openPopupAddCard = () => {
 };
 
 const generateCard = (cardData) => {
-  const card = new Card(cardData, templateSelector, handleCardClick);
+  const card = new Card(
+    cardData,
+    templateSelector,
+    handleCardClick,
+    handleLikeClick,
+    userInfo.id
+  );
+  cards[cardData._id] = card;
   return card.createCard();
 };
 
 const handleCardClick = (name, link) => {
   popupWithImage.open(name, link);
+};
+
+const handleLikeClick = (id, isLiked) => {
+  api
+    .toggleLikeCard(id, isLiked)
+    .then((data) => {
+      cards[id].updateLikeData(data);
+      cards[id].updateLikeCard();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 validatorProfileForm.enableValidation();
@@ -112,6 +134,6 @@ popupEditProfile.setEventListeners();
 popupWithImage.setEventListeners();
 popupAddCard.setEventListeners();
 
-console.log('hi, people! ПР9 tonight :)');
+console.log('hi, people! ПР9 right now :)');
 
 //# sourceMappingURL=/dist/app.js.map

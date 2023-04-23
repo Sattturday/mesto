@@ -14,14 +14,7 @@ export default class Api {
   getUserInfo() {
     return fetch(`${this.baseUrl}/users/me`, {
       headers: this.headers,
-    })
-      .then(this._checkAnswer)
-      .then((result) => {
-        return {
-          userName: result.name,
-          userJob: result.about,
-        };
-      });
+    }).then(this._checkAnswer);
   }
 
   setUserInfo({ userJob, userName }) {
@@ -32,14 +25,7 @@ export default class Api {
         name: userName,
         about: userJob,
       }),
-    })
-      .then(this._checkAnswer)
-      .then((result) => {
-        return {
-          userName: result.name,
-          userJob: result.about,
-        };
-      });
+    }).then(this._checkAnswer);
   }
 
   getInitialCards() {
@@ -57,5 +43,35 @@ export default class Api {
         link: cardLink,
       }),
     }).then(this._checkAnswer);
+  }
+
+  _addLikeCard(id) {
+    return fetch(`${this.baseUrl}/cards/${id}/likes`, {
+      method: 'PUT',
+      headers: this.headers,
+    })
+      .then(this._checkAnswer)
+      .then((res) => {
+        return res.likes;
+      });
+  }
+
+  _deleteLikeCard(id) {
+    return fetch(`${this.baseUrl}/cards/${id}/likes`, {
+      method: 'DELETE',
+      headers: this.headers,
+    })
+      .then(this._checkAnswer)
+      .then((res) => {
+        return res.likes;
+      });
+  }
+
+  toggleLikeCard(cardId, isLiked) {
+    if (isLiked) {
+      return this._deleteLikeCard(cardId);
+    } else {
+      return this._addLikeCard(cardId);
+    }
   }
 }
