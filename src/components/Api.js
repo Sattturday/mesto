@@ -74,4 +74,21 @@ export default class Api {
       return this._addLikeCard(cardId);
     }
   }
+
+  deleteCard(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}`, {
+      method: 'DELETE',
+      headers: this.headers,
+    }).then(this._checkAnswer);
+  }
+
+  updateAvatar({ avatarLink }) {
+    return fetch(`${this.baseUrl}/users/me/avatar`, {
+      method: 'PATCH',
+      headers: this.headers,
+      body: JSON.stringify({
+        avatar: avatarLink,
+      }),
+    }).then(this._checkAnswer);
+  }
 }

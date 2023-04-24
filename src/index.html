@@ -14,7 +14,10 @@
   <main class="content">
     <section class="profile" aria-label="Профиль">
       <div class="profile__info">
-        <img src="<%=require('./images/profile-avatar.jpg')%>" alt="Аватар" class="profile__avatar">
+        <div class="profile__avatar">
+          <button class="profile__avatar-edit"></button>
+          <img class="profile__avatar-image" src="" alt="Аватар">
+        </div>
         <h1 class="profile__info-name">Жак-Ив Кусто</h1>
         <button type="button" class="profile__button profile__button_edit"></button>
         <p class="profile__info-job">Исследователь океана</p>
@@ -62,6 +65,21 @@
       </form>
     </div>
 
+    <div class="popup popup_for_add-avatar">
+      <form class="popup__container popup__container_avatar" name="avatarForm">
+        <button type="button" class="popup__close"></button>
+        <p class="popup__title">Обновить аватар</p>
+        <fieldset class="popup__items">
+
+          <input class="popup__input popup__input_avatar-link" required type="url" name="avatarLink"
+            placeholder="https://somewebsite.com/someimage.jpg" value="" id="avatar-link">
+          <span class="popup__error avatar-link-error"></span>
+
+          <button type="submit" class="popup__button">Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
+
     <div class="popup popup_for_full-image">
       <figure class="popup__container-image">
         <button type="button" class="popup__close"></button>
@@ -69,6 +87,15 @@
         <figcaption class="popup__caption"></figcaption>
       </figure>
     </div>
+  </main>
+
+  <div class="popup popup_for_confirmation">
+    <div class="popup__container popup__container_confirmation">
+      <button type="button" class="popup__close"></button>
+      <p class="popup__title">Вы уверены?</p>
+      <button type="submit" class="popup__button">Да</button>
+    </div>
+  </div>
   </main>
 
   <footer class="footer">
