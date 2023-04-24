@@ -8,7 +8,6 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
 import FormValidator from '../components/FormValidator.js';
 import {
-  // initialCards,
   cardsSectionSelector,
   profileEditButton,
   cardAddButton,
@@ -28,7 +27,7 @@ import {
   avatarSelector,
 } from '../utils/constants.js';
 
-const cards = {};
+const cards = {}; // хранение экземпляров Card
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-64',
@@ -101,14 +100,26 @@ const popupAddCard = new PopupWithForm(popupAddCardSelector, (cardData) => {
       console.log(err);
     })
     .finally(() => {
-      popupAddCard.renderLoading(false);
+      popupAddCard.renderLoading(false, 'Создать');
     });
   popupAddCard.close();
 });
 
 const popupWithConfirmation = new PopupWithConfirmation(
   popupConfirmationSelector,
-  handleDeleteCard
+  (cardId) => {
+    popupWithConfirmation.renderLoading(true);
+    api
+      .deleteCard(cardId)
+      .then(() => {
+        cards[cardId].deleteCard();
+      })
+      .catch((err) => console.error(err))
+      .finally(() => {
+        popupWithConfirmation.renderLoading(false, 'Да');
+      });
+    popupWithConfirmation.close();
+  }
 );
 
 const validatorProfileForm = new FormValidator(validationConfig, profileForm);
@@ -116,16 +127,6 @@ const validatorAvatarForm = new FormValidator(validationConfig, avatarForm);
 const validatorCardAddForm = new FormValidator(validationConfig, cardAddForm);
 
 // functions
-function handleDeleteCard(cardId) {
-  api
-    .deleteCard(cardId)
-    .then(() => {
-      cards[cardId].deleteCard();
-      popupWithConfirmation.close();
-    })
-    .catch((err) => console.error(err));
-}
-
 const openPopupEditAvatar = () => {
   validatorAvatarForm.resetValidation();
   popupEditAvatar.open();
@@ -189,7 +190,5 @@ popupEditAvatar.setEventListeners();
 popupWithImage.setEventListeners();
 popupAddCard.setEventListeners();
 popupWithConfirmation.setEventListeners();
-
-console.log('hi, people! ПР9 right now :)');
 
 //# sourceMappingURL=/dist/app.js.map

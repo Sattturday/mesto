@@ -18,9 +18,9 @@
           <button class="profile__avatar-edit"></button>
           <img class="profile__avatar-image" src="" alt="Аватар">
         </div>
-        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+        <h1 class="profile__info-name"></h1>
         <button type="button" class="profile__button profile__button_edit"></button>
-        <p class="profile__info-job">Исследователь океана</p>
+        <p class="profile__info-job"></p>
       </div>
       <button type="button" class="profile__button profile__button_add"></button>
     </section>
@@ -35,11 +35,11 @@
         <p class="popup__title">Редактировать профиль</p>
         <fieldset class="popup__items">
           <input required minlength="2" maxlength="40" type="text" class="popup__input popup__input_name"
-            name="userName" placeholder="Имя" value="Жак-Ив Кусто" id="user-name">
+            name="userName" placeholder="Имя" value="" id="user-name">
           <span class="popup__error user-name-error"></span>
 
           <input required minlength="2" maxlength="200" type="text" class="popup__input popup__input_job" name="userJob"
-            placeholder="Род деятельности" value="Исследователь океана" id="user-job">
+            placeholder="Род деятельности" value="" id="user-job">
           <span class="popup__error user-job-error"></span>
 
           <button type="submit" class="popup__button">Сохранить</button>
@@ -112,7 +112,6 @@
           <button type="button" class="cards__like-icon"></button>
           <p class="cards__like-counter">9</p>
         </div>
-
       </div>
     </li>
   </template>

@@ -4,6 +4,7 @@ export default class PopupWithConfirmation extends Popup {
   constructor(selector, handleDeleteCard) {
     super(selector);
     this._handleDeleteCard = handleDeleteCard;
+    this._submitButton = this._popup.querySelector('.popup__button');
   }
 
   open(cardId) {
@@ -13,8 +14,9 @@ export default class PopupWithConfirmation extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._popup
-      .querySelector('.popup__button')
-      .addEventListener('click', () => this._handleDeleteCard(this._cardId));
+
+    this._submitButton.addEventListener('click', () =>
+      this._handleDeleteCard(this._cardId)
+    );
   }
 }
