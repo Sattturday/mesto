@@ -10,14 +10,6 @@ export default class Popup {
     }
   }
 
-  renderLoading(isLoading, buttonName = 'Сохранить') {
-    if (isLoading) {
-      this._submitButton.textContent = 'Сохранение...';
-    } else {
-      this._submitButton.textContent = buttonName;
-    }
-  }
-
   open() {
     this._popup.classList.add('popup_opened');
     document.addEventListener('keydown', this._handleEscClose);

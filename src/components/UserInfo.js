@@ -24,8 +24,4 @@ export default class UserInfo {
     this._userJob.textContent = this._job;
     this._avatarImage.src = this._avatar;
   }
-
-  setAvatar({ avatar }) {
-    this._avatarImage.src = avatar;
-  }
 }

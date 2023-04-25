@@ -7,6 +7,14 @@ export default class PopupWithConfirmation extends Popup {
     this._submitButton = this._popup.querySelector('.popup__button');
   }
 
+  renderLoading(isLoading) {
+    if (isLoading) {
+      this._submitButton.textContent = 'Удаление...';
+    } else {
+      this._submitButton.textContent = 'Да';
+    }
+  }
+
   open(cardId) {
     super.open();
     this._cardId = cardId;

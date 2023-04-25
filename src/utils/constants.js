@@ -22,9 +22,6 @@ export const avatarEditButton = document.querySelector('.profile__avatar-edit');
 export const cardAddButton = document.querySelector('.profile__button_add');
 
 // validation
-export const profileForm = document.forms.profileForm;
-export const avatarForm = document.forms.avatarForm;
-export const cardAddForm = document.forms.cardAddForm;
 export const validationConfig = {
   formSelector: '.popup__container', // form
   fieldSetSelector: '.popup__items', // fieldset
