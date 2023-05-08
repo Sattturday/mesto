@@ -15,6 +15,10 @@
 1. Mesto ⬅ этот репозиторий
 2. [Mesto (версия на React)](https://github.com/Sattturday/mesto-react)
 
+### **GitHub Pages**
+
+- Открыть в браузере сайт [Mesto](https://sattturday.github.io/mesto/)
+
 ### Примененные знания
 
 - Соверменная верстка с использованием Flexbox и Grid Layout
@@ -51,10 +55,6 @@
 - [Ссылка на макет в Figma - 2 часть](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1)
 - [Ссылка на макет в Figma - 3 часть](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0%3A1)
 - [Ссылка на макет в Figma - 4 часть](https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript-9-sprint?node-id=0%3A1)
-
-### **GitHub Pages**
-
-- Открыть в браузере сайт [Mesto](https://sattturday.github.io/mesto/)
 
 ### **Планы на будущее**
 
