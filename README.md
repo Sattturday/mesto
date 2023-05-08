@@ -51,8 +51,10 @@
 
 ### **GitHub Pages**
 
-- [Ссылка на проект в GitHub Pages](https://sattturday.github.io/mesto/)
+- Открыть в браузере сайт [Mesto](https://sattturday.github.io/mesto/)
 
 ### **Планы на будущее**
 
-Продолжить разработку проекта.
+✅ Завершено
+
+Дальнейшая разработка ведется в репозитории [Mesto (версия на React)](https://github.com/Sattturday/mesto-react)
